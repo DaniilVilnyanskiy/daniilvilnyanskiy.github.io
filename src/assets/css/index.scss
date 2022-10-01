@@ -1,0 +1,53 @@
+// компоненты
+@import "components/Form";
+
+// шрифты
+//@import "fonts/fonts";
+
+// утилиты
+@import "utils/Buttons";
+@import "utils/breakpoints";
+
+// общие стили
+* {
+  font-family: 'Nekst', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.w100 {
+  width: 100%;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: local("gilroy"),
+  url(fonts/gilroy/Gilroy-Black.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-BlackItalic.ttf) format('font-trueont-true'),
+  url(fonts/gilroy/Gilroy-Bold.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-BoldItalic.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-Light.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-LightItalic.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-Medium.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-MediumItalic.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-Regular.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-RegularItalic.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-Semibold.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-SemiboldItalic.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-Thin.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-ThinItalic.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-UltraLight.ttf) format('font-truetype'),
+  url(fonts/gilroy/Gilroy-UltraLightItalic.ttf) format('font-truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Nekst";
+  src: local("nekst"),
+  url(fonts/nekst/Nekst-Black.ttf) format('font-truetype'),
+  url(fonts/nekst/Nekst-Bold.ttf) format('font-truetype'),
+  url(fonts/nekst/Nekst-Light.ttf) format('font-truetype'),
+  url(fonts/nekst/Nekst-Medium.ttf) format('font-truetype'),
+  url(fonts/nekst/Nekst-Regular.ttf) format('font-truetype'),
+  url(fonts/nekst/Nekst-SemiBold.ttf) format('font-truetype'),
+  url(fonts/nekst/Nekst-Thin.ttf) format('font-truetype');
+  font-weight: normal;
+}
