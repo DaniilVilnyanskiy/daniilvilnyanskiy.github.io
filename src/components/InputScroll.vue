@@ -3,7 +3,11 @@
     <span>{{ params.title }}</span>
     <label class="input-content__inner">
       <label>{{ params.unit }}</label>
-      <input :value="params.priceCar ? params.priceCar : params.period">
+      <input
+          v-mask="paramsPrice.minPercent ? ['##'] :['# ### ###']"
+          :value="params.priceCar ? params.priceCar : params.period"
+          @input="$emit('minMaxCount')"
+          />
     </label>
     <div class="input-content__slider">
       <input type="range"
@@ -11,7 +15,7 @@
              :max="params.maxPrice ? params.maxPrice : params.maxPercent"
              v-model.number="paramsPrice.priceCar"
              :style="{
-               backgroundSize: params.priceCar ? params.priceCar / (6000000 - 0) * 100 + '100%' : paramsPrice.priceCar / 100 * paramsPrice.priceCar + '%' + '100%'
+               backgroundSize: num
              }"
              step="1">
     </div>
@@ -21,6 +25,7 @@
 <script>
 export default {
   name: 'InputScroll',
+
   data () {
     return {
       paramsPrice: this.params
@@ -40,16 +45,14 @@ export default {
     },
   },
   computed: {
-
+    num() {
+      return this.params.maxPrice ?
+          (this.params.priceCar - this.params.minPrice) / (this.params.maxPrice - this.params.minPrice) * 100 + '% ' + '100%' :
+          this.params.priceCar /  this.params.maxPercent * 100 + '% '+ '100%'
+    }
   },
   methods: {
-    changesSlider(e) {
-      e.preventDefault();
-      const body = document.querySelector('body');
-      const input = body.querySelector('.input-content__inner');
-      console.log(input)
-      return input;
-    },
+
   }
 }
 </script>

@@ -1,8 +1,10 @@
 <template>
   <form class="form" action="">
-    <h1>Рассчитайте стоимость автомобиля в лизинг</h1>
+    <h1 class="first-title">Рассчитайте стоимость автомобиля в лизинг</h1>
     <div class="input-container">
-      <InputScroll v-bind:params="carPrice"/>
+      <InputScroll
+          v-bind:params="carPrice"
+          @minMaxCount="maxMinCount"/>
       <InputScrollPercent v-bind:params="firstPay"/>
       <InputScroll v-bind:params="periodLeasing"/>
       <ResultComponent
@@ -13,12 +15,11 @@
           title="Ежемесячный платёж"
           v-bind:result="sumMonthPay"
       />
-      <div class="input-content">
+      <div class="input-content input-content__button">
         <CustomButton @click="request" :params="button"/>
       </div>
-      {{ carPrice.priceCar }}
-      {{ this.periodLeasing.priceCar }}
     </div>
+    {{button.loadingProcess}}
   </form>
 </template>
 
@@ -60,8 +61,10 @@ export default {
         priceCar: 60,
       },
       button: {
-        w100: true,
-      }
+        className: 'w100 btn-large',
+        loadingProcess: 1,
+      },
+
     }
   },
   computed: {
@@ -73,11 +76,14 @@ export default {
     },
     sumMonthPay() {
       return parseInt((this.carPrice.priceCar - this.initialPay) * ((0.035 * Math.pow((1 + 0.035), this.periodLeasing.priceCar)) / (Math.pow((1 + 0.035), this.periodLeasing.priceCar) - 1)))
-    }
+    },
   },
   methods: {
-    async request(e) {
-      e.preventDefault();
+    maxMinCount() {
+      console.log('test');
+    },
+    async request() {
+      this.loadingProcess = 2;
       const url = 'https://eoj3r7f3r4ef6v4.m.pipedream.net';
       const priceCar = this.carPrice.priceCar;
       const initPay = this.initialPay;
@@ -95,7 +101,9 @@ export default {
         body: JSON.stringify(dataBody),
       })
       .then((res) => res.text())
-      .then((res) => console.log(res))
+      .then(() => setTimeout(() => {
+        this.loadingProcess = 1
+      }, 1000))
       .catch((err) => {
         console.log(err);})
 

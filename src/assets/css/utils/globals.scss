@@ -1,0 +1,18 @@
+.first-title {
+  font-weight: 900;
+  line-height: 48.6px !important;
+  font-size: 54px !important;
+  @include sm {
+    font-size: 34px;
+    line-height: 30.6px;
+  }
+}
+.sub-title {
+  @include sm{
+    font-size: 22px !important;
+    line-height: 20px !important;
+  }
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}

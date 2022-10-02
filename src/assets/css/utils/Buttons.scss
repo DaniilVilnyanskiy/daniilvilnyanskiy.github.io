@@ -8,6 +8,17 @@
   font-size: 16px;
   font-weight: 700;
   height: 48px;
+  &-span {
+    color: white !important;
+    line-height: 24px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    &-large {
+      height: 68px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
   &:hover {
     background: #111111;
     cursor: pointer;
@@ -23,5 +34,10 @@
   }
   &-pressed {
     background: #575757;
+  }
+  &-large {
+    min-height: 68px;
+    font-size: 30px;
+    line-height: 36px;
   }
 }

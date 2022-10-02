@@ -1,7 +1,7 @@
 <template>
-  <div class="input-content">
-    <span>{{ title }}</span>
-    <span>{{ result }}</span>
+  <div class="input-content input-content__result">
+    <span class="">{{ title }}</span>
+    <span class="first-title sub-title">{{ result.toLocaleString('') }}</span>
   </div>
 </template>
 

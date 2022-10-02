@@ -1,12 +1,15 @@
+// утилиты
+@import "utils/Buttons";
+@import "utils/breakpoints";
+@import "utils/globals";
+
 // компоненты
 @import "components/Form";
+@import "components/Loading";
 
 // шрифты
 //@import "fonts/fonts";
 
-// утилиты
-@import "utils/Buttons";
-@import "utils/breakpoints";
 
 // общие стили
 * {

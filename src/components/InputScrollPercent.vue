@@ -2,20 +2,21 @@
   <div class="input-content">
     <span>{{ params.title }}</span>
     <label class="input-content__inner">
-      <label class=" input-content__inner_percent">{{ params.unit + '%' }}</label>
-      <input :value="parseInt(percent * params.priceCar )">
+      <label class="input-content__inner_percent">
+        <input :value="params.unit + '%'">
+      </label>
+      <input
+          v-mask="['# ### ###']"
+          :value="parseInt(percent * params.priceCar )">
     </label>
     <div class="input-content__slider">
       <input type="range"
              :min="params.minPercent"
              :max="params.maxPercent"
              v-model.number="paramsPrice.unit"
-             v-bind:style="{backgroundSize: params.unit + '%' + '100%'}"
+             v-bind:style="{backgroundSize: num}"
              step="1">
     </div>
-    {{ params.unit }}
-    {{ percent }}
-    {{ params.priceCar }}
   </div>
 </template>
 
@@ -51,6 +52,9 @@ export default {
   computed: {
     percent() {
       return this.params.unit / 100;
+    },
+    num() {
+      return (this.params.unit - 10) / (this.params.maxPercent - this.params.minPercent) * 100 + '%' + '100%'
     }
   },
   watch: {
