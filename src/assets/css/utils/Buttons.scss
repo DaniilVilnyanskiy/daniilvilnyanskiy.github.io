@@ -1,0 +1,47 @@
+.btn {
+  background: #FF9514;
+  padding: 12px 24px;
+  border-radius: 40px;
+  color: white;
+  border:none;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  height: 48px;
+  &-span {
+    color: white !important;
+    line-height: 24px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    &-large {
+      height: 68px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+  &:hover {
+    background: #111111;
+    cursor: pointer;
+  }
+  &-w100 {
+    width: 100%;
+  }
+  &-hover {
+    background: #111111;
+  }
+  &-disable {
+    background: rgba(255, 149, 20, 0.4);
+    &:hover {
+      background: rgba(255, 149, 20, 0.4);
+      cursor: auto;
+    }
+  }
+  &-pressed {
+    background: #575757;
+  }
+  &-large {
+    min-height: 68px;
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
