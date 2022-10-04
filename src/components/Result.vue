@@ -1,7 +1,10 @@
 <template>
   <div class="input-content input-content__result">
     <span class="">{{ title }}</span>
-    <span class="first-title sub-title">{{ result.toLocaleString('') }}</span>
+    <span
+        class="first-title sub-title"
+        v-mask="['# ### ###']"
+    >{{ result.toLocaleString('ru') }}</span>
   </div>
 </template>
 

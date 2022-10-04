@@ -1,7 +1,8 @@
-# calc-test
+# Hello, it's Car leasing calculator in Vue 3
 
 ## Project setup
 ```
+nvm use 16.14.2 (64-bit)
 npm install
 ```
 
