@@ -42,7 +42,7 @@ export default {
         maxPrice: 6000000,
         priceCar: 3300000,
         title: 'Стоимость автомобиля',
-        unit: '₽'
+        unit: 'svg'
       },
       firstPay: {
         minPercent: 10,
