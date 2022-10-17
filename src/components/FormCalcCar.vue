@@ -3,7 +3,7 @@
     <h1 class="first-title">Рассчитайте стоимость автомобиля в лизинг</h1>
     <div class="input-container">
       <InputScroll
-          v-bind:params="carPrice"/>
+          v-bind:params="carPrice" />
       <InputScrollPercent v-bind:params="firstPay"/>
       <InputScroll v-bind:params="periodLeasing"/>
       <ResultComponent
@@ -88,7 +88,6 @@ export default {
       const dataBody = {
         priceCar,initPay,month
       }
-      console.log(this.loadingProcess);
       // eslint-disable-next-line no-unused-vars
       const data = await fetch(url, {
         method: 'POST',

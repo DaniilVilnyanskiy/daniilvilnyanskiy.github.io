@@ -5,7 +5,7 @@
       <label>{{ params.unit }}</label>
       <input
           v-mask="paramsPrice.month ? ['##'] :['# ### ###']"
-          :value="params.priceCar ? params.priceCar : params.period"
+          :value="params.priceCar ? formatting(params.priceCar) : params.period"
           @keyup="setInputValue"
           @input="$emit('minMaxCount')"
           />
@@ -54,10 +54,12 @@ export default {
     }
   },
   methods: {
+    formatting(param) {
+      Math.round(param);
+      return String(param).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ');
+    },
     setInputValue(e) {
       let parent = Number(e.target.closest('input').value.replaceAll(' ', ''));
-      console.log(parent);
-      console.log(this.params);
       if (parent > this.params.maxPrice) {
         parent = this.params.maxPrice;
       }
@@ -65,8 +67,6 @@ export default {
         parent = this.params.minPrice;
       }
       this.paramsPrice.priceCar = parent;
-      console.log(parent);
-      console.log(this.paramsPrice.priceCar);
     }
   }
 }

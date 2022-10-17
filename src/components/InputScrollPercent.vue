@@ -11,8 +11,7 @@
       </label>
       <input
           disabled
-          v-mask="['# ### ###']"
-          :value="parseInt(percent * params.priceCar )">
+          :value="formatting(percent * params.priceCar)">
     </label>
     <div class="input-content__slider">
       <input type="range"
@@ -45,12 +44,23 @@ export default {
     },
   },
   methods: {
+    formatting(param) {
+      parseInt(param);
+      let string = String(param);
+      if (string.indexOf('.')) {
+        let str = string.split('.');
+        if (str.length > 1) {
+          param = str[0];
+        }
+        // eslint-disable-next-line no-empty
+      } else {
+
+      }
+      return String(param).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
+    },
     setInputValuePercent(e) {
-      console.log(e.target.closest('input').value);
+      console.log(e);
       let parent = Number(e.target.closest('input').value.replaceAll(' ', '').replaceAll('%',''));
-      console.log('-----------');
-      console.log(parent);
-      console.log(this.params);
       if (parent >= this.params.maxPercent) {
         parent = this.params.maxPercent;
       }
@@ -59,9 +69,6 @@ export default {
       }
 
       this.paramsPrice.unit = parent;
-      console.log(this.paramsPrice);
-      console.log(parent);
-
     }
   },
   computed: {
