@@ -1,4 +1,4 @@
-# Hello, it's Car leasing calculator in Vue 3
+# Hello, it's Car leasing calculator in Vue 3 - https://daniilvilnyanskiy.github.io/
 
 ## Project setup
 ```
